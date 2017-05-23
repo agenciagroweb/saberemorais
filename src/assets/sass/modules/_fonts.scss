@@ -1,0 +1,21 @@
+$font-small : 13px;
+$font-default : 13px;
+$font-large : 15px;
+
+$font-h1 : 32px;
+$font-h2 : 28px;
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: $font-default;
+  font-weight: 300;
+}
+
+@font-face {
+    font-family: 'focobold';
+    src: url('../fonts/foco.woff2') format('woff2'),
+         url('../fonts/foco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
