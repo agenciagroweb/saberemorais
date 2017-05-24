@@ -28,8 +28,9 @@ header {
                 
                 ul.submenu-list {
                     position: absolute;
-                    left: 15px;
-                    top: 45px;
+                    left: 10px;
+                    top: 50px;
+                    min-width: 140px;
                     
                     li {
                         display: none;
@@ -37,14 +38,14 @@ header {
                         border-bottom: none;
                         border-top: none;
                         float: none;
-                        padding: 7px 10px 6px 10px;
+                        padding: 0px 10px 0px 10px;
                         margin: 0;
                         font-size: 13px;
                         font-weight: 300;
                         text-align: center;
-                      
+                        line-height: 24px;
+                          
                         a {
-                            margin-bottom: 5px;
                             border-bottom: 2px solid;
                             text-decoration: none;
                             width: 100%;
@@ -56,9 +57,22 @@ header {
                             content: none;
                         }
                         
+                        &:first-child {
+                            padding-top: 10px;
+                        }
+                        
                         &:last-child {
                             border-bottom: 1px dashed;
+                            padding-bottom: 10px;
+                            
+                            a {
+                                border-bottom: none;
+                            }
                         }
+                    }
+                    
+                    &.about {
+                        min-width: 150px;
                     }
                 }
                 
@@ -140,21 +154,25 @@ div[data-content=di] {
         
         li {
             
+            a {
+                color: #5e5e5e !important;
+            }
+    
             ul.submenu-list {
 
                 li {
-                    border-color: #e37478;
+                    border-color: #5e5e5e !important;
 
                     a {
                         &:hover {
-                            background: #e37478;
-                            color: white;
-                            border-color: #e37478;
+                            background: #5e5e5e !important;
+                            color: white !important;
+                            border-color: #5e5e5e !important;
                         }
                     }
 
                     &:last-child {
-                        border-bottom: 1px dashed #e37478 !important;
+                        border-bottom: 1px dashed #5e5e5e !important;
                     }
                 }
             }
@@ -188,13 +206,13 @@ div[data-content=go] {
             ul.submenu-list {
 
                 li {
-                    border-color: white;
+                    border-color: white !important;
 
                     a {
                         &:hover {
-                            background: white;
+                            background: white !important;
                             color: #ff8615 !important;
-                            border-color: white;
+                            border-color: white !important;
                         }
                     }
 
@@ -230,21 +248,25 @@ div[data-content=pe] {
         
         li {
             
+            a {
+                color: #5e5e5e !important;
+            }
+            
             ul.submenu-list {
 
                 li {
-                    border-color: #7f2685;
+                    border-color: #5e5e5e !important;
 
                     a {
                         &:hover {
-                            background: #7f2685;
-                            color: white;
-                            border-color: #7f2685;
+                            background: #5e5e5e !important;
+                            color: white !important;
+                            border-color: #5e5e5e !important;
                         }
                     }
 
                     &:last-child {
-                        border-bottom: 1px dashed #7f2685 !important;
+                        border-bottom: 1px dashed #5e5e5e !important;
                     }
                 }
             }

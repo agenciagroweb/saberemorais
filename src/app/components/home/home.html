@@ -12,7 +12,7 @@
             <nav>
                 <ul class="menu-list">
                     <li>Sobre nós
-                        <ul class="submenu-list">
+                        <ul class="submenu-list about">
                             <li><a href="#">Sobre nós</a></li>
                             <li><a href="#">Contato</a></li> 
                         </ul> 
@@ -35,31 +35,102 @@
         
         <div class="timeline" >
           
-            <div class="dashed2"></div>
+            <div class="solid">
+                <span class="bottom"></span>
+                <span class="top"></span>
+                <span class="right"></span>
+                <span class="right hor"></span>
+                <span class="left"></span>
+                <span class="bottom ver"></span>
+            </div>
            
             <div class="dashed"></div>
+            
             <div class="cursor"></div>
             
+            <!-- di -->
             <div id="main" class="main" data-ref="di">
                 <div class="picture"></div>
                 <span class="desc">decoração + design de interiores</span>
-                <span class="more"></span>
+                <span class="more" ng-click="modal.open('div[data-ref=di].details')"></span>
             </div>
-            
-            <div class="banner" data-ref="di"></div>
 
+            <div class="details" data-ref="di">
+                <div class="left col-md-6">
+                    <h1>DI</h1>
+                    <h2>Decoração + design de interiores</h2>
+                </div>
+                
+                <div class="right col-md-6">
+                    <h3>Suas ideias planejadas aliando estéticas e funcionabilidade</h3>
+                    
+                    <ul>
+                        <li>Definições de acabamentos</li>
+                        <li>Maquete eletrônica 3D</li>
+                        <li>Planta técnica de instalação</li>
+                        <li>Difinição de paginações (pisos)</li>
+                        <li>Projeto decoração</li>
+                        <li>Acompanhamento técnico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="banner" data-ref="di"></div>
+            
+            <!-- go -->
             <div id="main" class="main" data-ref="go">
                 <div class="picture"></div>
                 <span class="desc">gerenciamento de obra</span>
-                <span class="more"></span>
+                <span class="more" ng-click="modal.open('div[data-ref=go].details')"></span>
+            </div>
+    
+            <div class="details" data-ref="go">
+                <div class="left col-md-6">
+                    <h1>GO</h1>
+                    <h2>Gerenciamento de obra</h2>
+                </div>
+                
+                <div class="right col-md-6">
+                    <h3>Suas ideias planejadas aliando estéticas e funcionabilidade</h3>
+                    
+                    <ul>
+                        <li>Definições de acabamentos</li>
+                        <li>Maquete eletrônica 3D</li>
+                        <li>Planta técnica de instalação</li>
+                        <li>Difinição de paginações (pisos)</li>
+                        <li>Projeto decoração</li>
+                        <li>Acompanhamento técnico</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="banner" data-ref="go"></div>
             
+            <!-- pe -->
             <div id="main" class="main" data-ref="pe">
                 <div class="picture"></div>
                 <span class="desc">projeto arquitetônico completo + criativo</span>
-                <span class="more"></span>
+                <span class="more" ng-click="modal.open('div[data-ref=pe].details')"></span>
+            </div>
+            
+            <div class="details" data-ref="pe">
+                <div class="left col-md-6">
+                    <h1>PE</h1>
+                    <h2>projeto arquitetônico completo + criativo</h2>
+                </div>
+                
+                <div class="right col-md-6">
+                    <h3>Suas ideias planejadas aliando estéticas e funcionabilidade</h3>
+                    
+                    <ul>
+                        <li>Definições de acabamentos</li>
+                        <li>Maquete eletrônica 3D</li>
+                        <li>Planta técnica de instalação</li>
+                        <li>Difinição de paginações (pisos)</li>
+                        <li>Projeto decoração</li>
+                        <li>Acompanhamento técnico</li>
+                    </ul>
+                </div>
             </div>
             
             <div class="banner" data-ref="pe"></div>

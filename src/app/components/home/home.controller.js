@@ -14,6 +14,37 @@ app.controller('home.controller', [
 
     var base = angular.element("#home");
 
+    $scope.modal = {
+        
+        open : function(ref) {
+
+            TweenLite.to(ref, 0.2, {
+                css: {
+                    display: "block",
+                    scaleX: 1, 
+                    scaleY: 1,
+                    opacity: 1,
+                },
+                force3D:true,
+                ease: Power2.easeOut
+            });
+        },
+        
+        close : function(ref) {
+
+            TweenLite.to(ref, 0.2, {
+                css: {
+                    display: "none",
+                    scaleX: 0, 
+                    scaleY: 0,
+                    opacity: 0
+                },
+                force3D:true,
+                ease: Power2.easeOut
+            });
+        }
+    };
+    
     var places = [
         {
             code: "pe",
@@ -23,7 +54,7 @@ app.controller('home.controller', [
             acolor : "#7f2685",
             x: "0px",
             y: "0px",
-            position : 'rotate3d(0.81, 0.42, 0, 9.18deg)'
+            position : 'rotate3d(0.76, 0.40, 0, 9.18deg)'
         },
         {
             code: "di",
@@ -33,7 +64,7 @@ app.controller('home.controller', [
             acolor : "#e37478",
             x: "0px",
             y: "530px",
-            position : 'rotate3d(-0.69, 0.42, 0, 8.11deg)'
+            position : 'rotate3d(-0.67, 0.40, 0, 8.11deg)'
         },
         {
             code: "go",
@@ -43,9 +74,48 @@ app.controller('home.controller', [
             acolor : "#ffffff",
             x: "580px",
             y: "530px",
-            position : 'rotate3d(-0.70, -0.39, 0, 8.05deg)'
+            position : 'rotate3d(-0.67, -0.38, 0, 8.05deg)'
         }
     ];
+    
+    var animations = {
+        
+        start : function(i, cursor) {
+                    
+            TweenLite.to(".dashed", 1, {
+                transform: places[i-1].position,
+                ease: Power2.easeOut
+            });
+
+            TweenLite.to(".main, .banner", 0, {
+                opacity: 0,
+                display: "none",
+                ease: Power2.easeOut
+            });
+
+            TweenLite.to((places[i-1].ref + ".main, " + places[i-1].ref + ".banner"), 2, {
+                opacity: 1,
+                display: "block",
+                ease: Power2.easeOut
+            });
+
+            TweenLite.to("div[data-page=home]", 2, {
+                backgroundColor: places[i-1].bgcolor,
+                ease: Power2.easeOut
+            });
+            
+            if (cursor === true) {
+                
+                TweenLite.to("div[data-page=home] .cursor", 0.3, {
+                    left: places[i-1].x,
+                    bottom: places[i-1].y,
+                    ease: Power2.easeOut
+                });
+            }
+            
+            $('div[data-page=home]').attr("data-content", places[i-1].code);
+        }
+    };
 
     var gridWidth = 580;
     var gridHeight = 530;
@@ -54,6 +124,24 @@ app.controller('home.controller', [
         edgeResistance:1,
         bounds:".main",
         liveSnap:true,
+        onDragEnd: function() {
+            
+            var y = Math.round($(".cursor").offset().top - $('.main').offset().top);
+            var x = Math.round($(".cursor").offset().left - $('.main').offset().left);
+            
+            if (x >= (636 - (636 * 20/100)) && x <= (636 + (636 * 20/100))) {
+                animations.start(3, false);
+            }
+            
+            if (x >= (464 - (464 * 20/100)) && x <= (464 + (464 * 20/100)) || x < 0) {
+                animations.start(2, false);
+            }
+            
+            if (y >= (574 - (574 * 20/100)) && y <= (574 + (574 * 20/100))) {
+                animations.start(1, false);
+            }
+            
+        },
         snap: {
             x: function(endValue) {
                 return Math.round(endValue / gridWidth) * gridWidth;
@@ -64,10 +152,11 @@ app.controller('home.controller', [
         }
     });
     
+    var time;
     var i=1;
     var recursive = false;
-    
-    setInterval(function(){
+   
+    time = setInterval(function(){
 
         if (i > 0) {
 
@@ -84,36 +173,10 @@ app.controller('home.controller', [
                 i++;
             }
         }
-        
-        TweenLite.to(".dashed", 1, {
-            transform: places[i-1].position,
-            ease: Power2.easeOut
-        });
-
-        TweenLite.to(".main, .banner", 1, {
-            opacity: 0,
-            ease: Power2.easeOut
-        });
-        
-        TweenLite.to(places[i-1].ref, 1, {
-            opacity: 1,
-            ease: Power2.easeOut
-        });
-        
-        TweenLite.to("div[data-page=home]", 1, {
-            backgroundColor: places[i-1].bgcolor,
-            ease: Power2.easeOut
-        });
-        
-        TweenLite.to("div[data-page=home] .cursor", 0.3, {
-            left: places[i-1].x,
-            bottom: places[i-1].y,
-            ease: Power2.easeOut
-        });
-        
-        $('div[data-page=home]').attr("data-content", places[i-1].code);
-    }, 3500);
-    
+      
+        animations.start(i, true);
+                
+    }, 4500);
     
     var request = null;
     var mouse = {
@@ -124,7 +187,11 @@ app.controller('home.controller', [
     var cx = window.innerWidth / 2;
     var cy = window.innerHeight / 2;
     
-    
+    TweenLite.to(".dashed", 0, {
+        transform: places[0].position,
+        ease: Power2.easeOut
+    });
+        
     $('body').mousemove(function(event) {
 
       mouse.x = event.pageX;
@@ -153,6 +220,21 @@ app.controller('home.controller', [
     $(window).resize(function() {
       cx = window.innerWidth / 2;
       cy = window.innerHeight / 2;
+    });
+    
+    $(document).click(function() {
+        clearInterval(time);
+    });
+
+    $(document).mouseup(function(e) 
+    {
+        var container = $(".details");
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {
+            $scope.modal.close('.details');
+        }
     });
 
 }]);
