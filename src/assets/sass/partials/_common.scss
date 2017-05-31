@@ -1,12 +1,19 @@
 //Header
 header {
     display: flex;
-    margin: 45px;
+    padding: 45px;
         
     h1 {
         width: 246px;
         height: 48px;
         text-indent: -9999px;
+        
+        a {
+            width: 246px;
+            height: 48px;
+            text-indent: -9999px;
+            display: block;
+        }
     }
     
     nav {
@@ -24,16 +31,20 @@ header {
                 float: right;
                 position: relative;
                 padding: 18px 32px;
-                margin-left: 20px;
+                margin-left: 25px;
+                cursor: pointer;
                 
                 ul.submenu-list {
                     position: absolute;
-                    left: 10px;
-                    top: 50px;
-                    min-width: 140px;
+                    left: 13px;
+                    top: 60px;
+                    min-width: 137px;
+                    
                     
                     li {
-                        display: none;
+                        opacity: 0;
+                        transition: visibility 0s ease-in-out, opacity 0.2s ease-in-out;
+                        visibility: hidden;
                         border-style: dashed;
                         border-bottom: none;
                         border-top: none;
@@ -58,7 +69,6 @@ header {
                         }
                         
                         &:first-child {
-                            padding-top: 10px;
                         }
                         
                         &:last-child {
@@ -72,7 +82,7 @@ header {
                     }
                     
                     &.about {
-                        min-width: 150px;
+                        min-width: 147px;
                     }
                 }
                 
@@ -86,13 +96,67 @@ header {
                     height: 100%;
                     z-index: -1;
                 }*/
+
+                span.full {
+                    position: absolute;
+                    bottom: -13px;
+                    right: -13px;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                span.left {
+                    position: absolute;
+                    bottom: -13px;
+                    left: 13px;
+                    display: block;
+                    height: 20%;
+                    border-left: 1px dashed white;
+                    width: 0;
+                }
+                
+                span.right {
+                    position: absolute;
+                    bottom: -13px;
+                    right: -13px;
+                    display: block;
+                    height: 100%;
+                    border-right: 1px dashed white;
+                    width: 0;
+                }
+                
+                span.top {
+                    position: absolute;
+                    top: 13px;
+                    right: -13px;
+                    display: block;
+                    height: 0;
+                    border-top: 1px dashed white;
+                    width: 8%;
+                }
+                
+                span.bottom {
+                    position: absolute;
+                    bottom: -13px;
+                    right: -13px;
+                    display: block;
+                    height: 0;
+                    border-bottom: 1px dashed white;
+                    width: 100%;
+                }
                 
                 &:hover {
+                    
+                    span.bottom {
+                        display: none;
+                    }
                     
                     ul.submenu-list {
                         
                         li {
-                            display: block;
+                            opacity: 1;
+                            visibility: visible;
                         }
                     }
                 }
@@ -108,7 +172,7 @@ header {
 //Footer
 footer {
     display: flex;
-    margin: 45px;
+    padding: 45px;
     
     a.groweb {
         width: 66px;
@@ -158,11 +222,15 @@ div[data-content=di] {
                 color: #5e5e5e !important;
             }
     
+            .bottom, .right, .left, .top {
+                border-color: #5e5e5e !important;
+            }
+                    
             ul.submenu-list {
 
                 li {
                     border-color: #5e5e5e !important;
-
+                    
                     a {
                         &:hover {
                             background: #5e5e5e !important;
@@ -202,7 +270,7 @@ div[data-content=go] {
         }
         
         li {
-            
+
             ul.submenu-list {
 
                 li {
@@ -250,6 +318,10 @@ div[data-content=pe] {
             
             a {
                 color: #5e5e5e !important;
+            }
+            
+            .bottom, .right, .left, .top {
+                border-color: #5e5e5e !important;
             }
             
             ul.submenu-list {

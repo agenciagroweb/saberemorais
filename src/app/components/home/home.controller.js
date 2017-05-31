@@ -14,11 +14,12 @@ app.controller('home.controller', [
 
     var base = angular.element("#home");
 
+    $scope.urlmain = "pe";
     $scope.modal = {
         
         open : function(ref) {
 
-            TweenLite.to(ref, 0.2, {
+            TweenLite.to(ref, 0.45, {
                 css: {
                     display: "block",
                     scaleX: 1, 
@@ -32,7 +33,7 @@ app.controller('home.controller', [
         
         close : function(ref) {
 
-            TweenLite.to(ref, 0.2, {
+            TweenLite.to(ref, 0.45, {
                 css: {
                     display: "none",
                     scaleX: 0, 
@@ -81,8 +82,8 @@ app.controller('home.controller', [
     var animations = {
         
         start : function(i, cursor) {
-                    
-            TweenLite.to(".dashed", 1, {
+                      
+            TweenLite.to(".dashed", 1.6, {
                 transform: places[i-1].position,
                 ease: Power2.easeOut
             });
@@ -106,7 +107,7 @@ app.controller('home.controller', [
             
             if (cursor === true) {
                 
-                TweenLite.to("div[data-page=home] .cursor", 0.3, {
+                TweenLite.to("div[data-page=home] .cursor", 0.5, {
                     left: places[i-1].x,
                     bottom: places[i-1].y,
                     ease: Power2.easeOut
@@ -114,18 +115,31 @@ app.controller('home.controller', [
             }
             
             $('div[data-page=home]').attr("data-content", places[i-1].code);
+            
+            $scope.urlmain = places[i-1].code;
+            $scope.$apply();
+        },
+        
+        cursor : function (x, y) {
+            
+            TweenLite.to("div[data-page=home] .cursor", 0, {
+                left: x,
+                bottom: y
+            });
         }
     };
 
     var gridWidth = 580;
     var gridHeight = 530;
+//    var gridWidth = 10;
+//    var gridHeight = 10;
     Draggable.create(".cursor", {
         type:"x,y",
         edgeResistance:1,
         bounds:".main",
         liveSnap:true,
         onDragEnd: function() {
-            
+
             var y = Math.round($(".cursor").offset().top - $('.main').offset().top);
             var x = Math.round($(".cursor").offset().left - $('.main').offset().left);
             
@@ -133,14 +147,18 @@ app.controller('home.controller', [
                 animations.start(3, false);
             }
             
-            if (x >= (464 - (464 * 20/100)) && x <= (464 + (464 * 20/100)) || x < 0) {
+            else if (x >= (464 - (464 * 20/100)) && x <= (464 + (464 * 20/100)) || x < 0) {
                 animations.start(2, false);
             }
             
-            if (y >= (574 - (574 * 20/100)) && y <= (574 + (574 * 20/100))) {
+            else if (y >= (574 - (574 * 20/100)) && y <= (574 + (574 * 20/100))) {
                 animations.start(1, false);
             }
             
+            else {
+                animations.start(1, false);
+                animations.cursor('-576px', '0px');
+            }
         },
         snap: {
             x: function(endValue) {
@@ -176,7 +194,7 @@ app.controller('home.controller', [
       
         animations.start(i, true);
                 
-    }, 4500);
+    }, 5000);
     
     var request = null;
     var mouse = {
@@ -192,30 +210,30 @@ app.controller('home.controller', [
         ease: Power2.easeOut
     });
         
-    $('body').mousemove(function(event) {
-
-      mouse.x = event.pageX;
-      mouse.y = event.pageY;
-
-      cancelAnimationFrame(request);
-      request = requestAnimationFrame(update);
-    });
-
-    function update() {
-
-      var dx = mouse.x - cx;
-      var dy = mouse.y - cy;
-
-      var tiltx = (dy / cy);
-      var tilty = -(dx / cx);
-      var radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
-      var degree = (radius * 8);
-     
-      TweenLite.to(".timeline", 1, {
-        transform: 'rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)',
-        ease: Power2.easeOut
-      });
-    }
+//    $('body').mousemove(function(event) {
+//
+//      mouse.x = event.pageX;
+//      mouse.y = event.pageY;
+//
+//      cancelAnimationFrame(request);
+//      request = requestAnimationFrame(update);
+//    });
+//
+//    function update() {
+//
+//      var dx = mouse.x - cx;
+//      var dy = mouse.y - cy;
+//
+//      var tiltx = (dy / cy);
+//      var tilty = -(dx / cx);
+//      var radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2));
+//      var degree = (radius * 8);
+//     
+//      TweenLite.to(".timeline", 1, {
+//        transform: 'rotate3d(' + tiltx + ', ' + tilty + ', 0, ' + degree + 'deg)',
+//        ease: Power2.easeOut
+//      });
+//    }
 
     $(window).resize(function() {
       cx = window.innerWidth / 2;

@@ -25,7 +25,7 @@ body {
   a {
       text-decoration: none;
       
-      &:hover {
+      &:hover, &:focus, &:active {
           text-decoration: none;
       }
   }

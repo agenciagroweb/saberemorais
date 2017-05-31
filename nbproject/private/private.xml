@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/www/seber/src/assets/sass/partials/_common.scss</file>
             <file>file:/D:/www/seber/dist/index.html</file>
+            <file>file:/D:/www/seber/src/app/core/routes.js</file>
+            <file>file:/D:/www/seber/src/assets/sass/partials/_home.scss</file>
+            <file>file:/D:/www/seber/src/app/components/home/home.controller.js</file>
+            <file>file:/D:/www/seber/src/index.html</file>
+            <file>file:/D:/www/seber/dist/views/home/home.html</file>
+            <file>file:/D:/www/seber/src/app/components/home/home.html</file>
         </group>
     </open-files>
 </project-private>
