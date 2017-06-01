@@ -1,0 +1,105 @@
+<div data-page="detail" data-content="{{urlmain}}" class="full-height">
+
+    <header ng-style="{'background-image' : 'url(assets/images/misc/project-bg-001.jpg)'}">
+       
+        <div class="col-md-6">
+            <hgroup>
+                <h1><a href="./">seber&morais</a></h1>
+            </hgroup>
+        </div>
+        
+        <div class="col-md-6 text-right">
+            <nav>
+                <ul class="menu-list">
+                    <li>Sobre nós
+                        <span class="top"></span>
+                        <span class="bottom"></span>
+                        <span class="right"></span>
+                        <span class="left"></span>
+                        <span class="full"></span>
+                        
+                        <ul class="submenu-list about">
+                            <li><a href="./sobre-nos">Sobre nós</a></li>
+                            <li><a href="./contato">Contato</a></li> 
+                        </ul> 
+                    </li>
+                    
+                    <li>Projetos
+                        <span class="top"></span>
+                        <span class="bottom"></span>
+                        <span class="right"></span>
+                        <span class="left"></span>
+                        <span class="full"></span>
+                        
+                        <ul class="submenu-list">
+                            <li><a href="./{{urlmain}}/projetos/arquitetura">Arquitetura</a></li>
+                            <li><a href="./{{urlmain}}/projetos/comerciais">Comerciais</a></li>
+                            <li><a href="./{{urlmain}}/projetos/interiores">Interiores</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="bg"></div>
+        
+        <div class="desc">
+            <address><span>Residência CD, 655m2,</span> São Paulo, SP, Brasil</address>
+
+            <ul>
+                <li><span>tipo:</span> Projeto residencial</li>
+                <li><span>localização:</span> Arosa Swiss Park - Campinas/SP</li>
+                <li><span>área construída:</span> 479,73 m²</li>
+                <li><span>área terreno:</span> 533,20 m²</li>
+            </ul>
+            
+            <a href="#view" ng-click="action.scroll()"><i></i></a>
+        </div>
+    </header>
+    
+    <div class="content">
+        
+        <div class="owl-carousel owl-theme">
+            <div class="item" ng-style="{'background-image' : 'url(./assets/images/misc/project-slider-001-01.jpg)'}"></div>
+            <div class="item" ng-style="{'background-image' : 'url(./assets/images/misc/project-bg-001.jpg)'}"></div>
+            <div class="item-video"><a class="owl-video" href="https://vimeo.com/34741214"><img src="./assets/images/misc/project-slider-001-02.jpg" /></a></div>
+        </div>
+         
+    </div>
+    
+    <footer>
+        
+        <div class="col-md-6">
+            <nav class="social">
+                <ul>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                </ul>
+            </nav>
+            
+            <span class="copyright">© 2017 seber&morais Todos os direitos reservados.</span>
+        </div>
+        
+        <div class="col-md-6 text-right">
+            <a href="http://www.groweb.com.br" target="_blank" class="groweb"> </a>
+        </div>
+        
+    </footer>
+    
+    <script>
+        $('.owl-carousel').owlCarousel({
+            items: 1,
+            loop: true,
+            video: true,
+            nav: true,
+            dots: false,
+            merge: true,
+            lazyLoad: false,
+            autoplay: true,
+            autoplayTimeout:4500,
+            autoplayHoverPause:true,
+            smartSpeed: 1000
+        });
+    </script>
+
+</div>

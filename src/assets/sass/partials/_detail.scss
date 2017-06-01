@@ -1,0 +1,369 @@
+//Detail
+div[data-page=detail] {
+    
+    &[data-content=pe], &[data-content=go], &[data-content=di] {
+        
+        header {
+            min-height: 100vh;
+            background-attachment: fixed;
+            color: white;
+            border-color: white;
+            background-size: cover;
+            position: relative;
+            
+            a {
+                color: white;
+            }
+
+            h1 {
+                background: url('../images/logos/header-white.png') no-repeat;
+                width: 48px;
+                height: 48px;
+                -webkit-transition: width 0.2s; /* Safari */
+                transition: width 0.2s;
+
+                a {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                &:hover {
+                    width: 246px;
+                    height: 48px;
+
+                    a {
+                        width: 246px;
+                        height: 48px;
+                    }
+                }
+            }
+
+            li {
+
+                .bottom, .right, .left, .top {
+                    border-color: white;
+                }
+
+                ul.submenu-list {
+
+                    li {
+                        color: #5e5e5e;
+                        border-color: white;
+
+                        a {
+                            &:hover {
+                                background: white;
+                                color: #5e5e5e;
+                                border-color: white;
+                            }
+                        }
+
+                        &:last-child {
+                            border-color: white;
+                        }
+                    }
+                }
+            }
+            
+            .bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 8888;
+                opacity: 0.9;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .desc {
+                position: absolute;
+                top: 35%;
+                left: 50%;
+                width: 500px;
+                text-align: center;
+                z-index: 9999;
+                margin-left: -250px;
+                
+                address {
+                    font-size: 24px;
+                    
+                    span {
+                        font-size: 32px;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        margin-bottom: 5px;
+                        display: block;
+                    }
+                }
+                
+                ul {
+                    margin: 60px 0;
+                    
+                    li {
+                        margin-bottom: 15px;
+                        
+                        span {
+                            font-weight: 800;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                
+                a {
+                    width: 11px;
+                    height: 81px;
+                    display: block;
+                    margin: 0 auto;
+                    
+                    i {
+                        animation-duration: 1.45s;
+                        animation-name: arrow;
+                        animation-iteration-count: infinite;
+                        width: 11px;
+                        height: 81px;
+                        display: block;
+                        background: url('../images/icons/arrow-detail-white.png') no-repeat;
+                    }
+                }
+            }
+        }
+        
+        .content {
+            position: relative;
+            min-height: calc(100vh - 120px);
+    
+            .owl-carousel {
+                position: relative;
+                height: calc(100vh - 120px);
+                
+                .owl-stage-outer, .owl-video-wrapper {
+                    height: calc(100vh - 120px);
+                }
+                
+                .owl-nav {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                
+                .item {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    height: calc(100vh - 120px);
+                }
+                
+                .owl-video-tn {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+                
+                .owl-video-wrapper {
+                    background: transparent;
+                }
+                
+                .owl-prev {
+                    width: 53px;
+                    height: 135px;
+                    background: url('../images/icons/arrow-slider-left.png') no-repeat;
+                    cursor: pointer;
+                    text-indent: -9999px;
+                    position: absolute;
+                    top: 50%;
+                    left: 60px;
+                    margin-top: -67px;
+                    transition: transform 100ms ease;
+                    
+                    &:hover {
+                        transform: scale(1.3, 1.3);
+                    }
+                }
+                
+                .owl-next {
+                    width: 53px;
+                    height: 135px;
+                    background: url('../images/icons/arrow-slider-right.png') no-repeat;
+                    cursor: pointer;
+                    text-indent: -9999px;
+                    position: absolute;
+                    top: 50%;
+                    right: 60px;
+                    margin-top: -67px;                    
+                    transition: transform 100ms ease;
+                    
+                    &:hover {
+                        transform: scale(1.3, 1.3);
+                    }
+                }
+                
+                .owl-nav {
+                    position: static;
+                }
+            }
+        }
+    }
+    
+    &[data-content=pe] {
+        
+        header {
+
+            .bg {
+                background: #7f2685;
+            }
+            
+            li {
+
+                a {
+                    color: white !important;
+                }
+
+                .bottom, .right, .left, .top {
+                    border-color: white !important;
+                }
+
+                ul.submenu-list {
+
+                    li {
+                        border-color: white !important;
+
+                        a {
+                            &:hover {
+                                background: white !important;
+                                color: #5e5e5e !important;
+                                border-color: white !important;
+                            }
+                        }
+
+                        &:last-child {
+                            border-bottom: 1px dotted white !important;
+                        }
+                    }
+                } 
+           }
+        }
+
+        footer {
+            color: white;
+            background: #7f2685;
+            
+            a {
+                color: white;
+            }
+            
+            a.groweb {
+                background: url('../images/logos/groweb-white.png') no-repeat;
+            }
+        }
+    }
+
+    &[data-content=di] {
+           
+        header {
+            color: #5e5e5e !important;
+            
+            .bg {
+                background: #18d9dd;
+            }
+            
+            h1 {
+                background: url('../images/logos/header-gray.png') no-repeat;
+            }    
+
+            li {
+
+                a {
+                    color: #5e5e5e !important;
+                }
+
+                .bottom, .right, .left, .top {
+                    border-color: #5e5e5e !important;
+                }
+
+                ul.submenu-list {
+
+                    li {
+                        border-color: #5e5e5e !important;
+
+                        a {
+                            &:hover {
+                                background: #5e5e5e !important;
+                                color: white !important;
+                                border-color: #5e5e5e !important;
+                            }
+                        }
+
+                        &:last-child {
+                            border-bottom: 1px dotted #5e5e5e !important;
+                        }
+                    }
+                }
+            }
+            
+            .desc {
+                
+                a {
+                    
+                    i {
+                        background: url('../images/icons/arrow-detail-gray.png') no-repeat;
+                    }
+                }
+            }
+        }
+        
+        footer {
+            color: #5e5e5e;
+            background: #18d9dd;
+            
+            a {
+                color: #c76367;
+            }
+            
+            .action {
+
+                a {
+                    color: #5e5e5e !important;
+
+                    span.left, span.right, span.top, span.bottom, span.left1, span.right1, span.top1, span.bottom1 {
+                        border-color: #5e5e5e !important;
+                    }
+                }
+            }
+            
+            a.groweb {
+                background: url('../images/logos/groweb-gray.png') no-repeat;
+            }
+        }
+        
+        .desc {
+            color: #5e5e5e;
+            
+            a {
+                color: #5e5e5e;
+            }
+        }
+    }
+    
+    &[data-content=go] {
+        
+        header {
+
+            .bg {
+                background: #ff8615;
+            }
+        }
+        
+        footer {
+            color: white;
+            background: #ff8615;
+            
+            a {
+                color: white;
+            }
+            
+            a.groweb {
+                background: url('../images/logos/groweb-white.png') no-repeat;
+            }
+        }
+    }
+}

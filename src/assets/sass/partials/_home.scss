@@ -15,8 +15,11 @@ div[data-page=home] {
         -webkit-perspective: 1000px;
     
         .timeline {
-            width: 600px;
-            height: 550px;
+/*            width: calc(100vh - 201px);
+            height: calc(100vh - 261px);*/
+            width: calc(100vh - 181px);
+            height: calc(100vh - 231px);
+            top: -45px;
             margin: 0 auto;
             position: relative;
             -webkit-transform-style: preserve-3d;
@@ -27,8 +30,8 @@ div[data-page=home] {
             -webkit-transform: translateZ(0px);
             
             .solid {
-                width: 600px;
-                height: 550px;
+                width: 100%;
+                height: 100%;
                 position: absolute;
                 top: 0px;
                 left: 0px;
@@ -43,12 +46,12 @@ div[data-page=home] {
                     left: 0;
                     display: block;
                     height: 2px;
-                    width: 50%;
+                    width: 57%;
                     
                     &.ver {
                         position: absolute;
                         bottom: -5px;
-                        left: 50%;
+                        left: 57%;
                         display: block;
                         width: 2px;
                         height: 12px;
@@ -94,9 +97,9 @@ div[data-page=home] {
             
             
             .dashed {
-                border: 2px dashed #c7c7c7;
-                width: 600px;
-                height: 550px;
+                border: 2px dotted #c7c7c7;
+                width: 100%;
+                height: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -119,6 +122,14 @@ div[data-page=home] {
                 transform: translateZ(65px);
                 -moz-transform: translateZ(65px);
                 -webkit-transform: translateZ(65px);
+                
+                -webkit-transition: width 0.25s, height 0.25s; /* Safari */
+                transition: width 0.25s, height 0.25s;
+    
+                &:hover {
+                    width: 25px;
+                    height: 25px;
+                }
             }
             
             .main {
@@ -126,19 +137,19 @@ div[data-page=home] {
                 -moz-transform: translateZ(60px);
                 -webkit-transform: translateZ(60px);
                 
-                width: 600px;
-                height: 550px;
+                width: 100%;
+                height: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
                 
                 .picture {
                     position: absolute;
-                    top: 90px;
+                    top: 15%;
                     left: 50%;
-                    margin-left: -125px;
-                    width: 250px;
-                    height: 200px;
+                    margin-left: -15%;
+                    width: 30%;
+                    height: 30%;
                     display: block;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -147,18 +158,18 @@ div[data-page=home] {
                 
                 .desc {
                     position: absolute;
-                    top: 320px;
+                    top: 57%;
                     left: 0;
                     width: 100%;
                     display: block;
-                    font-size: 18px;
+                    font-size: 1.1vw;
                     text-align: center;
                     font-family: 'focobold';
                 }
                 
                 .more {
                     position: absolute;
-                    top: 400px;
+                    top: 65%;
                     left: 50%;
                     margin-left: -72px;
                     width: 145px;
@@ -173,18 +184,20 @@ div[data-page=home] {
             .details {
                 display: none;
                 opacity: 0;
-                height: 480px;
-                width: 740px;
                 position: absolute;
-                bottom: 0;
-                left: -70px;
+                height: calc(100vh - 315px);
+                width: calc(90vh);
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                margin-left: -45vh;
                 -ms-transform: translateZ(70px);
                 -webkit-transform:translateZ(70px);
                 transform: translateZ(70px);
         
                 .left {
                     position: relative;
-                    width: 50%;
+                    width: 48%;
                     height: 100%;
                     color: white;
                     padding: 30px;
@@ -200,25 +213,24 @@ div[data-page=home] {
                 
                 .right {
                     position: relative;
-                    width: 50%;
+                    width: 52%;
                     height: 100%;
-                    padding: 30px;
+                    padding: 4%;
                     
                     h3 {
                         font-family: 'Nunito Sans', sans-serif;
                         font-weight: 700;
                         font-style: italic;
-                        font-size: 24px;
-                        line-height: 28px;
-                        margin-bottom: 20px;
-                        letter-spacing: -1px;
+                        font-size: 1.1vw;
+                        line-height: 1.4vw;
+                        margin-bottom: 15px;
                     }
                     
                     ul {
                         
                         li {
-                            font-size: 15px;
-                            margin-bottom: 5px;
+                            font-size: 0.9vw;
+                            margin-bottom: 1px;
                             
                             &::before {
                                 content: "• ";
@@ -233,12 +245,11 @@ div[data-page=home] {
                 transform: translateZ(100px);
                 -moz-transform: translateZ(100px);
                 -webkit-transform: translateZ(100px);
-
                 position: absolute;
-                right: -160px;
-                bottom: -75px;
-                width: 380px;
-                height: 360px;
+                right: calc(100vh - 165%);
+                bottom: calc(100vh - 155%);
+                width: 72%;
+                height: 72%;
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -302,6 +313,11 @@ div[data-page=home] {
             }
         }
     }
+    
+    footer {
+        position: relative;
+        top: -30px;
+    }
 }
 
 div[data-content=di] {
@@ -317,9 +333,18 @@ div[data-content=di] {
         }
     }
     
-    .picture {
-        margin-left: -114px !important;
-        width: 228px !important;
+    .picture {     
+        top: 20% !important;
+        margin-left: -16% !important;
+        width: 33% !important;
+        height: 33% !important;
+    }
+    
+    .banner {
+        right: calc(100vh - 150%) !important;
+        bottom: calc(100vh - 155%) !important;
+        width: 60% !important;
+        height: 60% !important;
     }
     
     .details {
@@ -328,13 +353,14 @@ div[data-content=di] {
             background: #e37478;
             
             h1 {
-                font-size: 285px;
+                font-size: 16vw;
                 text-align: center;
+                margin-top: 8%;
             }
 
             h2 {
-                font-size: 42px;
-                margin: -20px 42px
+                font-size: 2.2vw;
+                margin: -2% 14%;
             }
         }
         
@@ -364,9 +390,18 @@ div[data-content=go] {
         }
     }
     
-    .picture {
-        margin-left: -182px !important;
-        width: 364px !important;
+    .picture {       
+        top: 12% !important;
+        margin-left: -25% !important;
+        width: 51% !important;
+        height: 51% !important;
+    }
+    
+    .banner {
+        right: calc(100vh - 155%) !important;
+        bottom: calc(100vh - 160%) !important;
+        width: 65% !important;
+        height: 60% !important;
     }
     
     .details {
@@ -376,14 +411,16 @@ div[data-content=go] {
             background: #ff8615;
             
             h1 {
-                font-size: 245px;
-                letter-spacing: -20px;
-                margin-top: 25px;
+                font-size: 13.2vw;
+                letter-spacing: -12px;
+                margin-top: 20%;
+                text-align: center;
+                margin-left: -1%;
             }
 
             h2 {
-                font-size: 42px;
-                margin: 0 15px;
+                font-size: 2.2vw;
+                margin: -3% 8%;
             }
         }
         
@@ -414,9 +451,11 @@ div[data-content=pe] {
         }
     }
     
-    .picture {
-        margin-left: -144px !important;
-        width: 289px !important;
+    .picture {      
+        top: 18% !important;
+        margin-left: -20% !important;
+        width: 40% !important;
+        height: 40% !important;
     }
     
     .details {
@@ -426,13 +465,14 @@ div[data-content=pe] {
             background: #7f2584;
             
             h1 {
-                font-size: 280px;
-                margin-top: -5px;
+                font-size: 14.8vw;
+                margin-top: 9%;
+                text-align: center;
             }
 
             h2 {
-                font-size: 37px;
-                margin: -25px 20px;
+                font-size: 2vw;
+                margin: -5% 10%;
             }
         }
         

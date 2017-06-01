@@ -7,10 +7,7 @@ app.controller('home.controller', [
     '$filter',
     '$window',
     '$http',
-    '$httpParamSerializer',
-    'Popeye', function($scope, $location, $routeParams, $route, $timeout, $filter, $window, $http, $httpParamSerializer, Popeye) {
-
-    console.log("Home");
+    '$httpParamSerializer', function($scope, $location, $routeParams, $route, $timeout, $filter, $window, $http, $httpParamSerializer) {
 
     var base = angular.element("#home");
 
@@ -255,4 +252,6 @@ app.controller('home.controller', [
         }
     });
 
+    $('body').addClass('full-height');
+    
 }]);

@@ -1,0 +1,141 @@
+//Contact
+div[data-page=contact] {
+    
+    .content {
+        width: 50%;
+        margin: 0 auto;
+        padding: 40px 0;
+        min-height: calc(100vh - 261px);
+        
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: shrink .65s;
+                
+            h1 {
+                font-size: 36px;
+                font-weight: 800;
+                margin-bottom: 40px;
+                display: block;
+                color: #7f2685;
+                font-family: 'focobold';
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+        
+        form {
+            animation: shrink 1.05s;
+            
+            div {
+                position: relative;
+                
+                label {
+                    font-weight: 800;
+                    font-size: 13px;
+                    position: absolute;
+                    top: 5px;
+                    left: 20px;
+                    transition: transform 0.3s;
+                    z-index: 8888;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                }
+                
+                input {
+                    position: relative;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 2px solid #5e5e5e;
+                    width: 100%;
+                    padding: 5px;
+                    z-index: 9999;
+                    
+                    &:valid + label {
+                        transform: translate3d(0, -25px, 0);
+                    }
+                                        
+                    &:focus + label {
+                        color: #7f2685;
+                        transform: translate3d(0, -25px, 0);
+                    }
+                }
+                
+                .action {
+                    
+                    &:before {
+                        content: "";
+                        background: url(../images/icons/arrow-send-gray.png) no-repeat;
+                        height: 11px;
+                        width: 81px;
+                        position: absolute;
+                        top: 17px;
+                        left: 70%;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                    }
+                    
+                    &:hover {
+                        
+                        &:before {
+                            animation-duration: 0.45s;
+                            animation-name: arrow2;
+                        }
+                    }
+                     
+                    input[type="submit"] {
+                        background: transparent;
+                        font-weight: 800;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        border: none;
+                        line-height: 38px;
+                        height: 31px;
+                        font-size: 14px;
+                        text-align: left;
+                    }
+                }
+                
+                &.row {
+                    margin-bottom: 60px;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }        
+        }
+        
+        address {
+            font-size: 16px;
+            text-align: center;
+            margin: 60px 0 0 0;
+            animation: shrink 1.45s;
+            
+            span {
+                font-size: 18px;
+                font-family: 'focobold';
+                margin-bottom: 10px;
+                display: block;
+                
+                i {
+                    margin: 0 10px;
+                    font-size: 24px;
+                    color: #7f2685;
+                }
+            }
+        }
+    }
+}

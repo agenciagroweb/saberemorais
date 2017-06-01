@@ -1,0 +1,32 @@
+@keyframes arrow {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 81px;
+  }
+}
+
+@keyframes arrow2 {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 81px;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    -webkit-filter: blur(25px);
+    filter: blur(25px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
